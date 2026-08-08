@@ -2,6 +2,10 @@
 
 Dwight is a ChatGPT-like assistant UI and server scaffold. This repo contains a minimal React + Tailwind frontend and an Express backend that proxies requests to OpenAI's Chat Completions API so you can run a local ChatGPT-style assistant called "Dwight".
 
+Branding
+- Theme colors: black and yellow (applied to the client UI)
+- Logo: client/src/logo.svg (simple placeholder you can replace)
+
 Overview
 - Frontend: React + Vite + Tailwind (client/)
 - Backend: Express proxy to OpenAI (server/)
@@ -36,9 +40,10 @@ Quick start (local)
 Notes
 - The server proxies to OpenAI; keep your API key safe and do NOT check it into git.
 - For production deployment, add a host secret for OPENAI_API_KEY and configure CORS/proxy appropriately.
+- Replace the placeholder logo at `client/src/logo.svg` with your own branding if you like.
 
 Files added by this scaffold:
-- client/: React + Vite app with a ChatGPT-like UI
+- client/: Vite + React app with a ChatGPT-like UI
 - server/: Express proxy server
 - README.md, .gitignore
 
