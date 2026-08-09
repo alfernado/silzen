@@ -1,16 +1,22 @@
 {
-  "name": "dwight-server",
+  "name": "opsis-server",
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
   "scripts": {
+    "prestart": "if [ ! -d ../client/dist ]; then cd ../client && npm ci && npm run build; fi",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "postinstall": "cd ../client && npm install && npm run build",
+    "heroku-postbuild": "cd ../client && npm install && npm run build"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "node-fetch": "^2.6.7",
     "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
