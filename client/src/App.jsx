@@ -3,8 +3,8 @@ import Logo from './logo.svg'
 
 function App() {
   const [messages, setMessages] = useState([
-    { role: 'system', content: 'You are Dwight, a helpful AI assistant.' },
-    { role: 'assistant', content: "Hi — I'm Dwight. How can I help today?" }
+    { role: 'system', content: 'You are Opsis, a helpful AI assistant.' },
+    { role: 'assistant', content: "Hi — I'm Opsis. How can I help today?" }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,8 +18,8 @@ function App() {
     setLoading(true);
 
     try {
-      // Use Netlify Function endpoint when deployed to Netlify
-      const res = await fetch('/.netlify/functions/chat', {
+      // Use relative API endpoint on Render (server serves /api/chat)
+      const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: next })
@@ -38,8 +38,8 @@ function App() {
     <div className="min-h-screen bg-black text-yellow-400 flex">
       <aside className="w-72 bg-black border-r border-yellow-700">
         <div className="p-4 flex items-center gap-3">
-          <img src={Logo} alt="Dwight logo" className="w-10 h-10" />
-          <div className="font-bold text-2xl text-yellow-300">Dwight</div>
+          <img src={Logo} alt="Opsis logo" className="w-10 h-10" />
+          <div className="font-bold text-2xl text-yellow-300">Opsis</div>
         </div>
         <div className="p-4 text-sm text-yellow-300">A ChatGPT-like assistant — black & yellow theme</div>
       </aside>
