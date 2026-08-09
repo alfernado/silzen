@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -36,6 +37,17 @@ app.post('/api/chat', async (req, res) => {
     return res.status(500).json({ error: 'server_error', message: err.message });
   }
 });
+
+// Serve built client when in production (for single combined deploy)
+if (process.env.NODE_ENV === 'production') {
+  const clientDist = path.join(__dirname, '../client/dist');
+  app.use(express.static(clientDist));
+
+  // For any other route, serve index.html so client-side routing works
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientDist, 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Dwight server listening on http://localhost:${PORT}`));
