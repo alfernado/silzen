@@ -18,7 +18,8 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:3000/api/chat', {
+      // Use Netlify Function endpoint when deployed to Netlify
+      const res = await fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: next })
