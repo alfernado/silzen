@@ -10,3 +10,66 @@
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Silzen — Interactive Workspace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="silzen-workspace" role="main">
+    <section class="control-panel" aria-label="Controls">
+      <div class="brand-header">
+        <h1>🍃 Silzen</h1>
+        <p class="tagline">Absolute logic. Zero panic.</p>
+      </div>
+
+      <div class="parameter-group">
+        <label for="temperature">System Variance (Temp)</label>
+        <input type="range" id="temperature" min="0.0" max="0.2" step="0.01" value="0.00" aria-valuemin="0.0" aria-valuemax="0.2" />
+        <div class="parameter-row">
+          <output id="temperatureValue">0.00</output>
+          <span class="param-note">Locked near 0.0 for absolute rule-following and maximum factual accuracy.</span>
+        </div>
+      </div>
+
+      <div class="parameter-group">
+        <label for="verbosity">Response Verbosity</label>
+        <select id="verbosity" aria-label="Response verbosity">
+          <option value="minimal">Strictly Minimal</option>
+          <option value="efficient" selected>Efficient &amp; Direct</option>
+        </select>
+      </div>
+
+      <div class="system-status" title="Core state">
+        <div class="status-indicator steady" aria-hidden="true"></div>
+        <span>Core State: Meditative Stillness</span>
+      </div>
+
+      <div class="note">
+        <p class="muted">Client-side simulation is active. Replace or extend app.js to call your server-side process endpoint at /api/process for production use.</p>
+      </div>
+    </section>
+
+    <section class="chat-container" aria-label="Chat workspace">
+      <div class="chat-log" id="chatLog" role="log" aria-live="polite">
+        <div class="message system-msg">
+          <p>Silzen configuration loaded. Input your technical issue or dataset below. There will be no emotional pleasantries.</p>
+        </div>
+      </div>
+
+      <form class="input-tray" id="chatForm" aria-label="Input tray">
+        <label for="userInput" class="sr-only">Message</label>
+        <textarea id="userInput" placeholder="State your system fault or factual query..." required rows="3" aria-required="true"></textarea>
+        <div class="tray-actions">
+          <button type="submit" class="silzen-button" id="processButton">Process</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
