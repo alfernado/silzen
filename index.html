@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silzen — Interactive Workspace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="silzen-workspace">
+    <!-- Left Panel: Agrarian Controls (Dwight Mode) -->
+    <section class="control-panel">
+      <div class="brand-header">
+        <h1>🍃 Silzen</h1>
+        <p class="tagline">Absolute logic. Zero panic.</p>
+      </div>
+
+      <div class="parameter-group">
+        <label for="temperature">System Variance (Temp)</label>
+        <input type="range" id="temperature" min="0.0" max="0.2" step="0.05" value="0.0">
+        <span class="param-note">Locked near 0.0 for absolute rule-following and maximum factual accuracy.</span>
+      </div>
+
+      <div class="parameter-group">
+        <label for="verbosity">Response Verbosity</label>
+        <select id="verbosity">
+          <option value="minimal">Strictly Minimal</option>
+          <option value="efficient" selected>Efficient & Direct</option>
+        </select>
+      </div>
+
+      <div class="system-status">
+        <div class="status-indicator steady"></div>
+        <span>Core State: Meditative Stillness</span>
+      </div>
+    </section>
+
+    <!-- Right Panel: The Workspace Chat Logs (Zen Mode) -->
+    <section class="chat-container">
+      <div class="chat-log" id="chatLog">
+        <!-- System Greeting -->
+        <div class="message system-msg">
+          <p>Silzen configuration loaded. Input your technical issue or dataset below. There will be no emotional pleasantries.</p>
+        </div>
+      </div>
+
+      <!-- Input Tray -->
+      <form class="input-tray" id="chatForm">
+        <textarea id="userInput" placeholder="State your system fault or factual query..." required></textarea>
+        <button type="submit" class="silzen-button">Process</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>
